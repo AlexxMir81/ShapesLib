@@ -1,0 +1,134 @@
+SF:C:\Users\GpbUser\source\repos\ShapesLib\ShapesLib\AreaCalculator.cs
+FN:5,System.Double ShapesLib.AreaCalculator::calulateArea(ShapesLib.IShapes)
+FNDA:1,System.Double ShapesLib.AreaCalculator::calulateArea(ShapesLib.IShapes)
+DA:6,1
+DA:7,1
+DA:8,1
+LF:3
+LH:3
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:C:\Users\GpbUser\source\repos\ShapesLib\ShapesLib\Circle.cs
+FN:18,ShapesLib.Circle/Radius ShapesLib.Circle::get_MyRadius()
+FNDA:19,ShapesLib.Circle/Radius ShapesLib.Circle::get_MyRadius()
+DA:19,19
+FN:44,System.Double ShapesLib.Circle::CalculateArea()
+FNDA:1,System.Double ShapesLib.Circle::CalculateArea()
+DA:45,1
+FN:35,System.Void ShapesLib.Circle::.ctor(System.Double)
+FNDA:8,System.Void ShapesLib.Circle::.ctor(System.Double)
+DA:36,8
+DA:37,8
+DA:42,8
+DA:43,8
+DA:44,3
+FN:24,System.Double ShapesLib.Circle/Radius::get_Value()
+FNDA:9,System.Double ShapesLib.Circle/Radius::get_Value()
+DA:25,9
+FN:26,System.Void ShapesLib.Circle/Radius::set_Value(System.Double)
+FNDA:8,System.Void ShapesLib.Circle/Radius::set_Value(System.Double)
+DA:27,8
+DA:28,8
+DA:29,5
+DA:30,5
+DA:32,3
+DA:33,3
+BRDA:28,11,0,5
+BRDA:28,19,0,4
+BRDA:28,11,1,4
+BRDA:28,19,1,4
+BRDA:28,32,0,5
+BRDA:28,32,1,3
+LF:14
+LH:14
+BRF:6
+BRH:6
+FNF:5
+FNH:5
+end_of_record
+SF:C:\Users\GpbUser\source\repos\ShapesLib\ShapesLib\Triangle.cs
+FN:6,ShapesLib.Triangle/Side ShapesLib.Triangle::get_A()
+FNDA:19,ShapesLib.Triangle/Side ShapesLib.Triangle::get_A()
+DA:7,19
+FN:7,ShapesLib.Triangle/Side ShapesLib.Triangle::get_B()
+FNDA:19,ShapesLib.Triangle/Side ShapesLib.Triangle::get_B()
+DA:8,19
+FN:8,ShapesLib.Triangle/Side ShapesLib.Triangle::get_C()
+FNDA:19,ShapesLib.Triangle/Side ShapesLib.Triangle::get_C()
+DA:9,19
+FN:43,System.Boolean ShapesLib.Triangle::IsExist(System.Double,System.Double,System.Double)
+FNDA:24,System.Boolean ShapesLib.Triangle::IsExist(System.Double,System.Double,System.Double)
+DA:44,24
+DA:45,24
+DA:46,24
+BRDA:45,5,0,11
+BRDA:45,11,0,7
+BRDA:45,5,1,17
+BRDA:45,11,1,17
+FN:48,System.Double ShapesLib.Triangle::CalculateArea()
+FNDA:1,System.Double ShapesLib.Triangle::CalculateArea()
+DA:49,1
+DA:50,1
+DA:51,1
+DA:52,1
+DA:53,1
+DA:54,1
+FN:56,System.Boolean ShapesLib.Triangle::IsRightTraingle()
+FNDA:2,System.Boolean ShapesLib.Triangle::IsRightTraingle()
+DA:57,2
+DA:58,2
+DA:59,2
+DA:60,2
+DA:61,2
+DA:62,4
+DA:63,0
+DA:64,2
+BRDA:60,84,0,0
+BRDA:60,84,1,2
+BRDA:61,188,0,0
+BRDA:61,188,1,2
+BRDA:62,289,0,2
+BRDA:62,289,1,0
+FN:10,System.Void ShapesLib.Triangle::.ctor(System.Double,System.Double,System.Double)
+FNDA:24,System.Void ShapesLib.Triangle::.ctor(System.Double,System.Double,System.Double)
+DA:11,24
+DA:12,24
+DA:13,24
+DA:14,19
+DA:15,19
+DA:17,5
+DA:18,5
+DA:19,5
+DA:20,5
+DA:21,5
+DA:22,5
+DA:23,5
+BRDA:13,22,0,19
+BRDA:13,22,1,5
+FN:30,System.Double ShapesLib.Triangle/Side::get_Value()
+FNDA:81,System.Double ShapesLib.Triangle/Side::get_Value()
+DA:31,81
+FN:31,System.Void ShapesLib.Triangle/Side::set_Value(System.Double)
+FNDA:15,System.Void ShapesLib.Triangle/Side::set_Value(System.Double)
+DA:32,15
+DA:33,15
+DA:34,0
+DA:35,0
+DA:37,15
+DA:38,15
+BRDA:33,11,0,15
+BRDA:33,19,0,15
+BRDA:33,11,1,0
+BRDA:33,19,1,0
+BRDA:33,32,0,0
+BRDA:33,32,1,15
+LF:39
+LH:36
+BRF:18
+BRH:12
+FNF:9
+FNH:9
+end_of_record
