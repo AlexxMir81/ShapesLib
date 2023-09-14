@@ -1,6 +1,6 @@
 ﻿namespace ShapesLib
 {
-	public class Circle : IAreaFigure
+	public class Circle : IShapes
 	{
 		//private double radius;
 		//public double Radius

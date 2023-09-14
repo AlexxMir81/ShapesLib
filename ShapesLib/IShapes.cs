@@ -1,6 +1,6 @@
 ﻿namespace ShapesLib
 {
-    public interface IAreaFigure
+    public interface IShapes
     {
         public double CalculateArea();
     }

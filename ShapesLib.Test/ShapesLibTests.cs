@@ -75,11 +75,21 @@ namespace ShapesLib.Test
 		[InlineData(double.NaN, 2d, 3d)]
 		[InlineData(1d, double.NaN, 3d)]
 		[InlineData(1d, 2d, double.NaN)]
-		public void Creation_triangle_with_incorrect_sides_is_rejectwed(double a, double b, double c)
+		public void Creation_triangle_with_incorrect_sides_is_rejected(double a, double b, double c)
 		{
 			FluentActions.Invoking(()=> new Triangle(a, b, c))
 			.Should()
 			.Throw<ArgumentOutOfRangeException>();
+		}
+
+		[Theory]
+		[InlineData(1d, 2d, 4d)]
+		[InlineData(4d, 1d, 2d)]
+		[InlineData(1d, 2d, 3d)]
+		[InlineData(1d, 2d, 6)]
+		public void Creation_of_not_existed_triangle_is_rejected(double a, double b, double c)
+		{
+			FluentActions.Invoking(()=> new Triangle(a, b, c)) .Should().Throw<ArgumentOutOfRangeException>();
 		}
 
 		[Fact]
@@ -89,37 +99,54 @@ namespace ShapesLib.Test
 			var sidaA = 5;
 			var sidaB = 6;
 			var sidaC = 7;
-			IAreaFigure triangle = new Triangle(sidaA, sidaB, sidaC);
+			IShapes triangle = new Triangle(sidaA, sidaB, sidaC);
 			//Action
 			var result = _areaCalculator.calulateArea(triangle);
 			//Assert
 			Assert.True(result > 0);
 		}
-		[Fact]
-		public void Triangle_contains_a_right_angle()
+		//[Fact]
+		//public void Triangle_contains_a_right_angle()
+		//{
+		//	//Arrange
+		//	var sidaA = 3;
+		//	var sidaB = 4;
+		//	var sidaC = 5;
+		//	Triangle triangle = new Triangle(sidaA, sidaB, sidaC);
+		//	//Action
+		//	var result = triangle.IsRightTraingle();
+		//	//Assert
+		//	Assert.True(result);
+		//}
+		//[Fact]
+		//public void Triangle_not_contains_a_right_angle()
+		//{
+		//	//Arrange
+		//	var sidaA = 5;
+		//	var sidaB = 6;
+		//	var sidaC = 7;
+		//	Triangle triangle = new Triangle(sidaA, sidaB, sidaC);
+		//	//Action
+		//	var result = triangle.IsRightTraingle();
+		//	//Assert
+		//	Assert.False(result);
+		//}
+		[Theory]
+		[InlineData(3d, 4d, 5d, true)]
+		[InlineData(5d, 6d, 7d, false)]
+		public void Triangle_contains_a_right_angle(double a, double b, double c, bool isRight)
 		{
-			//Arrange
-			var sidaA = 3;
-			var sidaB = 4;
-			var sidaC = 5;
-			Triangle triangle = new Triangle(sidaA, sidaB, sidaC);
-			//Action
-			var result = triangle.IsRightTraingle();
-			//Assert
-			Assert.True(result);
+			var triangle = new Triangle(a, b, c);
+			triangle.IsRightTraingle().Should().Be(isRight);
 		}
+
 		[Fact]
-		public void Triangle_not_contains_a_right_angle()
+		public void Circle_and_Triangle_are_Shapes()
 		{
-			//Arrange
-			var sidaA = 5;
-			var sidaB = 7;
-			var sidaC = 12;
-			Triangle triangle = new Triangle(sidaA, sidaB, sidaC);
-			//Action
-			var result = triangle.IsRightTraingle();
-			//Assert
-			Assert.False(result);
+			var cirle = new Circle(10d);
+			var triangle = new Triangle(50d,60d, 70d);
+			cirle.Should().BeAssignableTo<IShapes>();
+			triangle.Should().BeAssignableTo<IShapes>();
 		}
 	}
 }

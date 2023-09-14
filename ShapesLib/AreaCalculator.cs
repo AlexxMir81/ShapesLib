@@ -2,7 +2,7 @@
 {
     public class AreaCalculator
     {
-        public double calulateArea(IAreaFigure figure)
+        public double calulateArea(IShapes figure)
         {
             return figure.CalculateArea();
         }

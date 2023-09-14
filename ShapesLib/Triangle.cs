@@ -2,7 +2,7 @@
 
 namespace ShapesLib
 {
-    public class Triangle : IAreaFigure
+    public class Triangle : IShapes
     {
         public Side A { get; set; }
 		public Side B { get; set; }
