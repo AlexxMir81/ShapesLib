@@ -37,12 +37,51 @@ namespace ShapesLib.Test
 		{
 			//Arrange
 			var radius = 5;
-			IAreaFigure circle = new Circle(radius);
 			//Action
-			var result = _areaCalculator.calulateArea(circle);
+			var circle = new Circle(radius);
 			//Assert
-			Assert.True(result > 0);
+			circle.CalculateArea().Should().BeGreaterThan(0d);
 		}
+
+		[Fact]
+		public void Triangle_is_created()
+		{
+			//Avarage
+			var sidaA = 5;
+			var sidaB = 6;
+			var sidaC = 7;
+			//Action
+			var triangle  = new Triangle(sidaA, sidaB, sidaC);
+			//Assert
+			triangle.Should().NotBeNull();
+			triangle.A.Value.Should().Be(sidaA);
+			triangle.B.Value.Should().Be(sidaB);
+			triangle.C.Value.Should().Be(sidaC);
+		}
+
+		[Theory]
+		[InlineData(-1d, 2d, 3d)]
+		[InlineData(1d, -2d, 3d)]
+		[InlineData(1d, 2d, -3d)]
+		[InlineData(0d, 2d, 3d)]
+		[InlineData(1d, 0d, 3d)]
+		[InlineData(1d, 2d, 0d)]
+		[InlineData(double.NegativeInfinity, 2d, 3d)]
+		[InlineData(1d, double.NegativeInfinity, 3d)]
+		[InlineData(1d, 2d, double.NegativeInfinity)]
+		[InlineData(double.PositiveInfinity, 2d, 3d)]
+		[InlineData(1d, double.PositiveInfinity, 3d)]
+		[InlineData(1d, 2d, double.PositiveInfinity)]
+		[InlineData(double.NaN, 2d, 3d)]
+		[InlineData(1d, double.NaN, 3d)]
+		[InlineData(1d, 2d, double.NaN)]
+		public void Creation_triangle_with_incorrect_sides_is_rejectwed(double a, double b, double c)
+		{
+			FluentActions.Invoking(()=> new Triangle(a, b, c))
+			.Should()
+			.Throw<ArgumentOutOfRangeException>();
+		}
+
 		[Fact]
 		public void Area_of_triangle_is_calculated()
 		{

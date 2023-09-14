@@ -4,31 +4,62 @@ namespace ShapesLib
 {
     public class Triangle : IAreaFigure
     {
-        private double sideA;
-        private double sideB;
-        private double sideC;
+        public Side A { get; set; }
+		public Side B { get; set; }
+		public Side C { get; set; }
 
-        public Triangle(double sideA, double sideB, double sideC)
+		public Triangle(double a, double b, double c)
         {
-            this.sideA = sideA;
-            this.sideB = sideB;
-            this.sideC = sideC;
+            if (!IsExist(a,b,c))
+            {
+                throw new ArgumentOutOfRangeException(nameof(c));
+            }
+            A = new Side();
+            A.Value = a;
+            B = new Side();
+            B.Value = b;
+            C = new Side();
+            C.Value = c;
         }
+        
+        public class Side
+        {
+            private double value;
+
+            public double Value
+            {
+                get { return value; }
+                set {
+					if (value <= 0 || double.IsInfinity(value) || double.IsNaN(value))
+					{
+						throw new ArgumentOutOfRangeException(nameof(value));
+					}
+					this.value = value; 
+                }
+            }
+
+        }
+
+        public bool IsExist(double a, double b, double c)
+        {
+			return a + b > c && a + c > b && b + c > a;
+		}
+
         public double CalculateArea()
         {
-            var p = (sideA + sideB + sideC) / 2;
-            var p2 = p * (p - sideA) * (p - sideB) * (p - sideC);
+            var p = (A.Value + B.Value + C.Value) / 2;
+            var p2 = p * (p - A.Value) * (p - B.Value) * (p - C.Value);
             var result = Math.Sqrt(p2);
             return result;
         }
 
         public bool IsRightTraingle()
         {
-            List<double> temp = new List<double>() { sideA, sideB, sideC };
+            List<double> temp = new List<double>() { A.Value, B.Value, C.Value };
             var hypotenuse = temp.Max();
-            if (temp.Max() == sideA) return Math.Pow(sideA, 2) == Math.Pow(sideB, 2) + Math.Pow(sideC, 2);
-            else if (temp.Max() == sideB) return Math.Pow(sideB, 2) == Math.Pow(sideA, 2) + Math.Pow(sideC, 2);
-            else if (temp.Max() == sideC) return Math.Pow(sideC, 2) == Math.Pow(sideA, 2) + Math.Pow(sideB, 2);
+            if (hypotenuse == A.Value) return Math.Pow(A.Value, 2) == Math.Pow(B.Value, 2) + Math.Pow(C.Value, 2);
+            else if (hypotenuse == B.Value) return Math.Pow(B.Value, 2) == Math.Pow(A.Value, 2) + Math.Pow(C.Value, 2);
+            else if (hypotenuse == C.Value) return Math.Pow(C.Value, 2) == Math.Pow(A.Value, 2) + Math.Pow(B.Value, 2);
             else return false;
         }
     }
