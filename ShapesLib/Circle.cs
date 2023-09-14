@@ -19,10 +19,8 @@
 		{
 			this.radius = radius;
 		}
-		public double CalculateArea()
-		{
-			var result = radius * radius * Math.PI;
-			return result;
+		public double CalculateArea() => radius * radius * Math.PI;
+
 		}
 	}
 }
