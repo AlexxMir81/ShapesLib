@@ -2,25 +2,48 @@
 {
 	public class Circle : IAreaFigure
 	{
-		private double radius;
-		public double Radius
+		//private double radius;
+		//public double Radius
+		//{
+		//	get { return radius; }
+		//	set
+		//	{
+		//		if (value <= 0d || double.IsInfinity(radius) || double.IsNaN(radius))
+		//		{
+		//			throw new ArgumentOutOfRangeException(nameof(value));
+		//		}
+		//		radius = value;
+		//	}
+		//}
+
+		public Radius MyRadius { get; set; }
+		public class Radius
 		{
-			get { return radius; }
-			set
+			private double value;
+			public double Value
 			{
-				if (value <= 0d || double.IsInfinity(radius) || double.IsNaN(radius))
+				get { return value; }
+				set
 				{
-					throw new ArgumentOutOfRangeException(nameof(value));
+					if (value <= 0d || double.IsInfinity(value) || double.IsNaN(value))
+					{
+						throw new ArgumentOutOfRangeException(nameof(value));
+					}
+					this.value = value;
 				}
-				radius = value;
 			}
 		}
 		public Circle(double radius)
 		{
-			this.radius = radius;
+			//if (radius <= 0d || double.IsInfinity(radius) || double.IsNaN(radius))
+			//{
+			//	throw new ArgumentOutOfRangeException(nameof(radius));
+			//}
+			this.MyRadius = new Radius();
+			MyRadius.Value= radius;
 		}
-		public double CalculateArea() => radius * radius * Math.PI;
+		public double CalculateArea() => MyRadius.Value *MyRadius.Value * Math.PI;
 
-		}
 	}
 }
+

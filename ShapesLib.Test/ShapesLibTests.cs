@@ -1,3 +1,4 @@
+using FluentAssertions;
 namespace ShapesLib.Test
 {
 	public class ShapesLibTests
@@ -6,6 +7,29 @@ namespace ShapesLib.Test
 		public ShapesLibTests()
 		{
 			this._areaCalculator = new AreaCalculator();
+		}
+		[Fact]
+		public void Circle_is_created()
+		{
+			//Arrange
+			var radius = 10d;
+			//Action
+			Circle circle = new Circle(radius);
+			//Assert
+			circle.MyRadius.Value.Should().Be(10d);
+		}
+
+		[Theory]
+		[InlineData(-10d)]
+		[InlineData(0)]
+		[InlineData(double.PositiveInfinity)]
+		[InlineData(double.NegativeInfinity)]
+		[InlineData(double.NaN)]
+		public void Creation_of_circle_with_incorrect_radius_get_exception(double radius)
+		{
+			FluentActions.Invoking(() => new Circle(radius: radius))
+			.Should()
+			.Throw<ArgumentOutOfRangeException>();
 		}
 
 		[Fact]
