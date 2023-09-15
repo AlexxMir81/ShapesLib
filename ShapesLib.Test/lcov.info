@@ -12,8 +12,8 @@ FNF:1
 FNH:1
 end_of_record
 SF:C:\Users\GpbUser\source\repos\ShapesLib\ShapesLib\Circle.cs
-FN:8,ShapesLib.Circle/Radius ShapesLib.Circle::get_MyRadius()
-FNDA:25,ShapesLib.Circle/Radius ShapesLib.Circle::get_MyRadius()
+FN:8,ShapesLib.Radius ShapesLib.Circle::get_MyRadius()
+FNDA:25,ShapesLib.Radius ShapesLib.Circle::get_MyRadius()
 DA:9,25
 FN:24,System.Double ShapesLib.Circle::CalculateArea()
 FNDA:3,System.Double ShapesLib.Circle::CalculateArea()
@@ -33,23 +33,23 @@ FNF:3
 FNH:3
 end_of_record
 SF:C:\Users\GpbUser\source\repos\ShapesLib\ShapesLib\Radius.cs
-FN:9,System.Double ShapesLib.Circle/Radius::get_Value()
-FNDA:21,System.Double ShapesLib.Circle/Radius::get_Value()
-DA:10,21
-FN:11,System.Void ShapesLib.Circle/Radius::set_Value(System.Double)
-FNDA:9,System.Void ShapesLib.Circle/Radius::set_Value(System.Double)
-DA:12,9
-DA:13,9
-DA:14,5
-DA:15,5
-DA:17,4
-DA:18,4
-BRDA:13,11,0,6
-BRDA:13,19,0,5
-BRDA:13,11,1,4
-BRDA:13,19,1,4
-BRDA:13,32,0,5
-BRDA:13,32,1,4
+FN:12,System.Double ShapesLib.Radius::get_Value()
+FNDA:21,System.Double ShapesLib.Radius::get_Value()
+DA:13,21
+FN:14,System.Void ShapesLib.Radius::set_Value(System.Double)
+FNDA:9,System.Void ShapesLib.Radius::set_Value(System.Double)
+DA:15,9
+DA:16,9
+DA:17,5
+DA:18,5
+DA:20,4
+DA:21,4
+BRDA:16,11,0,6
+BRDA:16,19,0,5
+BRDA:16,11,1,4
+BRDA:16,19,1,4
+BRDA:16,32,0,5
+BRDA:16,32,1,4
 LF:7
 LH:7
 BRF:6
@@ -58,23 +58,23 @@ FNF:2
 FNH:2
 end_of_record
 SF:C:\Users\GpbUser\source\repos\ShapesLib\ShapesLib\Side.cs
-FN:13,System.Double ShapesLib.Side::get_Value()
+FN:12,System.Double ShapesLib.Side::get_Value()
 FNDA:177,System.Double ShapesLib.Side::get_Value()
-DA:14,177
-FN:15,System.Void ShapesLib.Side::set_Value(System.Double)
+DA:13,177
+FN:14,System.Void ShapesLib.Side::set_Value(System.Double)
 FNDA:27,System.Void ShapesLib.Side::set_Value(System.Double)
+DA:15,27
 DA:16,27
-DA:17,27
+DA:17,5
 DA:18,5
-DA:19,5
+DA:20,22
 DA:21,22
-DA:22,22
-BRDA:17,11,0,24
-BRDA:17,19,0,23
-BRDA:17,11,1,4
-BRDA:17,19,1,4
-BRDA:17,32,0,5
-BRDA:17,32,1,22
+BRDA:16,11,0,24
+BRDA:16,19,0,23
+BRDA:16,11,1,4
+BRDA:16,19,1,4
+BRDA:16,32,0,5
+BRDA:16,32,1,22
 LF:7
 LH:7
 BRF:6
