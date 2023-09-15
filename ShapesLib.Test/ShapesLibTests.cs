@@ -100,10 +100,11 @@ namespace ShapesLib.Test
 			var sidaB = 6;
 			var sidaC = 7;
 			IShapes triangle = new Triangle(sidaA, sidaB, sidaC);
-			//Action
-			var result = _areaCalculator.calulateArea(triangle);
-			//Assert
-			Assert.True(result > 0);
+			////Action
+			//var result = _areaCalculator.calulateArea(triangle);
+			////Assert
+			//Assert.True(result > 0);
+			triangle.CalculateArea().Should().BeGreaterThan(0d);
 		}
 		//[Fact]
 		//public void Triangle_contains_a_right_angle()
@@ -141,12 +142,59 @@ namespace ShapesLib.Test
 		}
 
 		[Fact]
-		public void Circle_and_Triangle_are_Shapes()
+		public void Circle_is_Shape()
 		{
 			var cirle = new Circle(10d);
-			var triangle = new Triangle(50d,60d, 70d);
 			cirle.Should().BeAssignableTo<IShapes>();
+		}
+
+		[Fact]
+		public void Triangle_is_Shape()
+		{
+			var triangle = new Triangle(50d,60d, 70d);
 			triangle.Should().BeAssignableTo<IShapes>();
+		}
+
+		[Fact]
+		public void Square_is_created()
+		{	
+			var side = 4d;
+			var square = new Square(side);
+			square.Should().NotBeNull();
+			square.MySide.Value.Should().Be(side);
+			square.Diagonal.Should().BeApproximately(Math.Sqrt(2*(side*side)), 0.000000000001d);
+		}
+
+		[Theory]
+		[InlineData(-1d)]
+		[InlineData(0d)]
+		[InlineData(double.NegativeInfinity)]
+		[InlineData(double.PositiveInfinity)]
+		[InlineData(double.NaN)]
+		public void Creation_square_with_incorrect_sides_is_rejected(double side)
+		{
+			FluentActions.Invoking(() => new Square(side))
+			.Should()
+			.Throw<ArgumentOutOfRangeException>();
+		}
+		[Fact]
+		public void Area_of_square_is_calculated()
+		{
+			//Arrange
+			var sida = 5;
+			var square = new Square(sida);
+			////Action
+			//var result = _areaCalculator.calulateArea(triangle);
+			////Assert
+			//Assert.True(result > 0);
+			square.CalculateArea().Should().BeGreaterThan(0d);
+		}
+
+		[Fact]
+		public void Square_is_Shape()
+		{
+			var square = new Square(50d);
+			square.Should().BeAssignableTo<IShapes>();
 		}
 	}
 }

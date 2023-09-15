@@ -2,7 +2,7 @@
 
 namespace ShapesLib
 {
-    public class Triangle : IShapes
+	public partial class Triangle : IShapes
     {
         public Side A { get; set; }
 		public Side B { get; set; }
@@ -20,24 +20,6 @@ namespace ShapesLib
             B.Value = b;
             C = new Side();
             C.Value = c;
-        }
-        
-        public class Side
-        {
-            private double value;
-
-            public double Value
-            {
-                get { return value; }
-                set {
-					if (value <= 0 || double.IsInfinity(value) || double.IsNaN(value))
-					{
-						throw new ArgumentOutOfRangeException(nameof(value));
-					}
-					this.value = value; 
-                }
-            }
-
         }
 
         public bool IsExist(double a, double b, double c)
