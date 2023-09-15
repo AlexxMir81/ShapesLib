@@ -1,4 +1,6 @@
 using FluentAssertions;
+using Xunit;
+
 namespace ShapesLib.Test
 {
 	public class ShapesLibTests
@@ -86,7 +88,7 @@ namespace ShapesLib.Test
 		[InlineData(1d, 2d, 4d)]
 		[InlineData(4d, 1d, 2d)]
 		[InlineData(1d, 2d, 3d)]
-		[InlineData(1d, 2d, 6)]
+		[InlineData(1d, 2d, 6d)]
 		public void Creation_of_not_existed_triangle_is_rejected(double a, double b, double c)
 		{
 			FluentActions.Invoking(()=> new Triangle(a, b, c)) .Should().Throw<ArgumentOutOfRangeException>();
@@ -183,10 +185,7 @@ namespace ShapesLib.Test
 			//Arrange
 			var sida = 5;
 			var square = new Square(sida);
-			////Action
-			//var result = _areaCalculator.calulateArea(triangle);
-			////Assert
-			//Assert.True(result > 0);
+			//Assert
 			square.CalculateArea().Should().BeGreaterThan(0d);
 		}
 
@@ -195,6 +194,25 @@ namespace ShapesLib.Test
 		{
 			var square = new Square(50d);
 			square.Should().BeAssignableTo<IShapes>();
+		}
+
+		[Fact]
+		public void Calculating_area_without_knowing_the_Shape()
+		{
+			//Arrange
+			var radius = 10d;
+			var sideA = 10d;
+			var sideB = 30d;
+			var sideC = 35d;
+			var cirle = new Circle(radius);
+			var triangle = new Triangle(sideA, sideB, sideC);
+			var square = new Square(sideA);
+			//Action
+			var calculator = new AreaCalculator();
+			//Assert
+			calculator.CalulateArea(cirle).Should().Be(cirle.CalculateArea());
+			calculator.CalulateArea(triangle).Should().Be(triangle.CalculateArea());
+			calculator.CalulateArea(square).Should().Be(square.CalculateArea());
 		}
 	}
 }

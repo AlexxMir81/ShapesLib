@@ -23,6 +23,7 @@
 		{
 			get { return diagonal; }
 		}
+
 		/// <summary>
 		/// Конструктор квадрата
 		/// </summary>

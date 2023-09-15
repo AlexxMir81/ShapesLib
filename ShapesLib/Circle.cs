@@ -18,6 +18,7 @@
 			this.MyRadius = new Radius();
 			MyRadius.Value= radius;
 		}
+
 		/// <summary>
 		///  Площадь круга
 		/// </summary>

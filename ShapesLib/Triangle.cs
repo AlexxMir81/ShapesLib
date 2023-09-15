@@ -6,15 +6,15 @@ namespace ShapesLib
 	public partial class Triangle : IShapes
     {
 		/// <summary>
-		/// Сторона треугольника А
+		/// Сторона А треугольника
 		/// </summary>
 		public Side A { get; set; }
 		/// <summary>
-		/// Сторона треугольника B
+		/// Сторона B треугольника
 		/// </summary>
 		public Side B { get; set; }
 		/// <summary>
-		/// Сторона треугольника С
+		/// Сторона C треугольника
 		/// </summary>
 		public Side C { get; set; }
 
@@ -40,7 +40,7 @@ namespace ShapesLib
 		/// <summary>
 		///  Провекра существует ли треугольник с заданными параметрами
 		/// </summary>
-		public bool IsExist(double a, double b, double c)
+		private bool IsExist(double a, double b, double c)
         {
 			return a + b > c && a + c > b && b + c > a;
 		}
