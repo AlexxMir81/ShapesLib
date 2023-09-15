@@ -8,7 +8,6 @@
 		/// Значение стороны
 		/// </summary>
 		/// <exception cref="ArgumentOutOfRangeException"> Если значение меньше или равно нулю или равно бесконечности или равно NaN </exception>
-
 		public double Value
 		{
 			get { return value; }
