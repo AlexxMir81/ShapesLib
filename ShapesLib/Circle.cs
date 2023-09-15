@@ -1,31 +1,26 @@
 ﻿namespace ShapesLib
 {
+	/// <summary> Круг </summary>
 	public partial class Circle : IShapes
 	{
-		//private double radius;
-		//public double Radius
-		//{
-		//	get { return radius; }
-		//	set
-		//	{
-		//		if (value <= 0d || double.IsInfinity(radius) || double.IsNaN(radius))
-		//		{
-		//			throw new ArgumentOutOfRangeException(nameof(value));
-		//		}
-		//		radius = value;
-		//	}
-		//}
-
+		/// <summary>
+		/// Радиус круга
+		/// </summary>
 		public Radius MyRadius { get; set; }
+
+		/// <summary>
+		/// Конструктор круга
+		/// </summary>
+		/// <param name="radius">Радиус круга</param>
+		/// <exception cref="ArgumentOutOfRangeException"> Если радиус меньше или равен нулю или равен бесконечности или равен NaN </exception>
 		public Circle(double radius)
 		{
-			//if (radius <= 0d || double.IsInfinity(radius) || double.IsNaN(radius))
-			//{
-			//	throw new ArgumentOutOfRangeException(nameof(radius));
-			//}
 			this.MyRadius = new Radius();
 			MyRadius.Value= radius;
 		}
+		/// <summary>
+		///  Площадь круга
+		/// </summary>
 		public double CalculateArea() => MyRadius.Value *MyRadius.Value * Math.PI;
 
 	}

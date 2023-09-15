@@ -2,12 +2,27 @@
 
 namespace ShapesLib
 {
+	/// <summary> Треугольник </summary>
 	public partial class Triangle : IShapes
     {
-        public Side A { get; set; }
+		/// <summary>
+		/// Сторона треугольника А
+		/// </summary>
+		public Side A { get; set; }
+		/// <summary>
+		/// Сторона треугольника B
+		/// </summary>
 		public Side B { get; set; }
+		/// <summary>
+		/// Сторона треугольника С
+		/// </summary>
 		public Side C { get; set; }
 
+		/// <summary>
+		/// Конструктор треугольника
+		/// </summary>
+		/// <param names="a, b, c">Стороны треульника</param>
+		/// <exception cref="ArgumentOutOfRangeException"> Если стороны меньше или равны нулю или равны бесконечности или равны NaN </exception>
 		public Triangle(double a, double b, double c)
         {
             if (!IsExist(a,b,c))
@@ -22,12 +37,17 @@ namespace ShapesLib
             C.Value = c;
         }
 
-        public bool IsExist(double a, double b, double c)
+		/// <summary>
+		///  Провекра существует ли треугольник с заданными параметрами
+		/// </summary>
+		public bool IsExist(double a, double b, double c)
         {
 			return a + b > c && a + c > b && b + c > a;
 		}
-
-        public double CalculateArea()
+		/// <summary>
+		///  Площадь треугольника
+		/// </summary>
+		public double CalculateArea()
         {
             var p = (A.Value + B.Value + C.Value) / 2;
             var p2 = p * (p - A.Value) * (p - B.Value) * (p - C.Value);
@@ -35,7 +55,10 @@ namespace ShapesLib
             return result;
         }
 
-        public bool IsRightTraingle()
+		/// <summary>
+		///  Проверка является ли треуголник прямоуголным
+		/// </summary>
+		public bool IsRightTraingle()
         {
             List<double> temp = new List<double>() { A.Value, B.Value, C.Value };
             var hypotenuse = temp.Max();
