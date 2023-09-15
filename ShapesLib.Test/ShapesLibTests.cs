@@ -5,11 +5,6 @@ namespace ShapesLib.Test
 {
 	public class ShapesLibTests
 	{
-		private readonly AreaCalculator _areaCalculator;
-		public ShapesLibTests()
-		{
-			this._areaCalculator = new AreaCalculator();
-		}
 		[Fact]
 		public void Circle_is_created()
 		{
